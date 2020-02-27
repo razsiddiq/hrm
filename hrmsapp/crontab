@@ -1,0 +1,6 @@
+/5    * /bin/php /var/www/html/hrms/index.php attendancecron cloudattendance > /dev/null 2>&1
+0 8   * /bin/php /var/www/html/hrms/index.php attendancecron leave_triggers
+10 9   * /bin/php -f /var/www/html/hrms/index.php employees reminder_documents_expiry
+15 9   * /bin/php -f /var/www/html/hrms/index.php employees reminder_profile_completion
+20 9   1 /bin/php -f /var/www/html/hrms/index.php employees reminder_profile_completion weekly
+0     /bin/php /var/www/html/hrms/index.php attendancecron cron_email_miss_loginout
